@@ -2,14 +2,15 @@
 class Artistic_Galleries_Widget extends WP_Widget{
     public function __construct(){
         parent::__construct('artistic_galleries_widget', 'Artistic Galleries Widget', array('description' => 'Un affichage élégant'));
+        if(! is_admin()) {
+            wp_enqueue_style('artistic_galleries_css', plugins_url('/styles/artistic_galleries.css', __FILE__));
+            wp_enqueue_style('lightbox_css', plugins_url('/styles/lightbox.css', __FILE__));
 
-        wp_enqueue_style( 'artistic_galleries_css', plugins_url('/styles/artistic_galleries.css', __FILE__) );
-        wp_enqueue_style( 'lightbox_css', plugins_url('/styles/lightbox.css', __FILE__) );
+            wp_enqueue_script('lightbox_js', plugins_url('/js/lightbox-plus-jquery.js', __FILE__));
+            wp_enqueue_script('gridify_js', plugins_url('/js/gridify.js', __FILE__));
 
-        wp_enqueue_script( 'lightbox_js', plugins_url('/js/lightbox-plus-jquery.js', __FILE__) );
-        wp_enqueue_script( 'gridify_js', plugins_url('/js/gridify.js', __FILE__) );
-
-        wp_enqueue_script( 'artistic_galleries_js', plugins_url('/js/artistic_galleries.js', __FILE__) );
+            wp_enqueue_script('artistic_galleries_js', plugins_url('/js/artistic_galleries.js', __FILE__));
+        }
     }
 
     public function form($instance)
