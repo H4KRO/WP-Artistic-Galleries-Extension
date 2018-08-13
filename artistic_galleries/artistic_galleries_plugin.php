@@ -52,7 +52,7 @@ class Artistic_Galleries_Plugin{
         global $wpdb;
         $request = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}artworks", ARRAY_A);
         foreach($request as $item){
-            echo '<div class="thumbnail"><img onclick="openModal(' . $item['id'] . ')" class="artwork" gallery="' . $item['artworkGallery'] . '" src="'.$item['artworkUrl'].'"></div>';
+            echo '<div class="thumbnail artwork_displayer"><img onclick="openModal(' . $item['id'] . ')" class="artwork" gallery="' . $item['artworkGallery'] . '" src="'.$item['artworkUrl'].'"></div>';
         }
         ?>
         </div>

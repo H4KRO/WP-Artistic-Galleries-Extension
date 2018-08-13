@@ -23,6 +23,10 @@
     height: auto;
 }
 
+.artwork_displayer{
+    display: inline-block;
+}
+
 #modal{
     display: none;
     background-color: rgba(0, 0, 0,0.5);
